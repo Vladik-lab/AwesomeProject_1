@@ -1,4 +1,5 @@
-import { FlatList, SafeAreaView } from 'react-native';
+import { FlatList, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+
 import CardItem from './CardItem.js';
 
 const CardList = ({ navigation, oeuvres, myRoute, onDeleteItem }) => {
@@ -8,7 +9,8 @@ const CardList = ({ navigation, oeuvres, myRoute, onDeleteItem }) => {
 
         return (
         <SafeAreaView style={styles.container}>
-            <FlatList data={oeuvres}
+            <FlatList 
+                data={oeuvres}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id}
             />

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, View, Text } from 'react-native';
 
-// import CardItem from '../component/CardItem.js';
+import CardList from '../component/CardList.js';
 
 function MusiquesScreen({ navigation }) {
 
@@ -11,7 +11,7 @@ function MusiquesScreen({ navigation }) {
   useEffect(() => {
     const getMusiquesFromApi = async () => {
       try {
-        const response = await fetch( 'https://greta-bibliotheque-jh.herokuapp.com/api/musiques' );
+        const response = await fetch('https://greta-bibliotheque-jh.herokuapp.com/api/musiques');
         const json = await response.json();
         setMusiques(json.musiques);
         console.log(json.musiques);
@@ -19,20 +19,16 @@ function MusiquesScreen({ navigation }) {
         console.log(error);
       }
     }
-  getMusiquesFromApi();
-  });
-
-  // const renderMusiques = ({ item }) => {
-  //   return (
-  //     <Card px={5} py={2} rounded="md" bg="primary.300" my={2}>
-  //       {item.title}
-  //     </Card>
-  //   );
-  // };
+    getMusiquesFromApi();
+  }, []);
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'top' }}>
-      <Text>Musiques</Text>
+      <CardList
+        oeuvres={musiques}
+        // onDeleteItem={itemDeleteHandler}
+        route="musiques"
+      />
       <Button title="Accueil" onPress={() => navigation.push('Accueil')} />
     </View>
   );
