@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, View, Text } from 'react-native';
 
-import cardList from '../component/CardItem.js';
+// import CardItem from '../component/CardItem.js';
 
 function MusiquesScreen({ navigation }) {
 
@@ -14,6 +14,7 @@ function MusiquesScreen({ navigation }) {
         const response = await fetch( 'https://greta-bibliotheque-jh.herokuapp.com/api/musiques' );
         const json = await response.json();
         setMusiques(json.musiques);
+        console.log(json.musiques);
       } catch (error) {
         console.log(error);
       }

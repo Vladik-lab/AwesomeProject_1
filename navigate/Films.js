@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, View, Text } from 'react-native';
 
-// import cardList from '../component/card.js';
+// import CardItem from '../component/CardItem.js';
 
 function FilmsScreen({ navigation}) {
 
