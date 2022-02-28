@@ -7,13 +7,14 @@ import cardList from '../component/card.js';
 function MusiquesScreen({ navigation }) {
 
   useEffect(() => {
+    console.log('C\'est ici!')
     const getMusiquesFromApi = async () => {
       try {
-        const response = await fetch( 'http://localhost:5000/api/musiques' );
+        const response = await fetch( 'https://greta-bibliotheque-jh.herokuapp.com/api/musiques' );
         const json = await response.json();
         return json.musiques;
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
   //  getMusiquesFromApi();

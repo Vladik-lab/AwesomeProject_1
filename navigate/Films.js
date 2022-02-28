@@ -9,7 +9,7 @@ function FilmsScreen({ navigation}) {
   useEffect(() => {
     const getFilmsFromApi = async () => {
       try {
-        const response = await fetch( 'http://localhost:5000/api/films' );
+        const response = await fetch( 'https://greta-bibliotheque-jh.herokuapp.com/api/musiques' );
         const json = await response.json();
         return json.movies;
       } catch (error) {
