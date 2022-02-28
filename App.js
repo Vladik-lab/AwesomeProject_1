@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+// import { StyleSHeet, Button, View, Text } from 'react-native';
+// import { Icon } from 'react-native-elements';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+import Accueil from './navigate/Accueil.js';
+import MusiquesScreen from './navigate/Musiques.js';
+import FilmsScreen from './navigate/Films.js';
+
+
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Accueil">
+        <Stack.Screen name="Accueil" component={Accueil} 
+        options={{ headerStyle: { backgroundColor: '#228CDB' }, headerTintColor: '#fff' }} />
+        <Stack.Screen name="Musiques" component={MusiquesScreen}
+        options={{ headerStyle: { backgroundColor: '#228CDB' }, headerTintColor: '#fff'}} />
+        <Stack.Screen name="Films" component={FilmsScreen}
+        options={{ headerStyle: { backgroundColor: '#228CDB' }, headerTintColor: '#fff'}} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// headerRight: () => (<Icon name="plus" type="feather" color="#fff" style={style.headerIcon} />)
+
+export default App;
