@@ -6,20 +6,21 @@ import { Button, View, Text } from 'react-native';
 
 function FilmsScreen({ navigation}) {
 
+const [films, setFilms] = useState([]);
+
   useEffect(() => {
     const getFilmsFromApi = async () => {
       try {
         const response = await fetch( 'https://greta-bibliotheque-jh.herokuapp.com/api/musiques' );
         const json = await response.json();
-        return json.movies;
+        setFilms(json.films);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
-  //  getFilmsFromApi();
+  getFilmsFromApi();
   });
 
-  
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'top' }}>
         <Text>Films</Text>

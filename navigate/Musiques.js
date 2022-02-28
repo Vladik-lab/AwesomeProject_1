@@ -2,22 +2,23 @@
 import React, { useState, useEffect } from 'react'
 import { Button, View, Text } from 'react-native';
 
-import cardList from '../component/card.js';
+import cardList from '../component/CardItem.js';
 
 function MusiquesScreen({ navigation }) {
 
+  const [musiques, setMusiques] = useState([]);
+
   useEffect(() => {
-    console.log('C\'est ici!')
     const getMusiquesFromApi = async () => {
       try {
         const response = await fetch( 'https://greta-bibliotheque-jh.herokuapp.com/api/musiques' );
         const json = await response.json();
-        return json.musiques;
+        setMusiques(json.musiques);
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     }
-  //  getMusiquesFromApi();
+  getMusiquesFromApi();
   });
 
   // const renderMusiques = ({ item }) => {

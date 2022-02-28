@@ -4,27 +4,27 @@ import { Text, Card, Button, Icon } from 'react-native-elements';
 
 // {props.oeuvre}
 
-export default class cardList extends React.Component {
+export default class CardItem extends React.Component {
     render() {
         return (
             <ScrollView>
                 <View style={styles.container}>
                     <Card>
-                        <Card.Title>{musiques.title}</Card.Title>
+                        <Card.Title>{oeuvre.title}</Card.Title>
                         <Card.Divider />
                         <Card.Image
                             style={{ padding: 0 }}
                             source={{
-                                uri: musiques.imageUrl
+                                uri: oeuvre.imageUrl
                             }}
                         />
                         <Card.Divider />
                         <Text style={{ marginBottom: 10 }}>
-                            {musiques.auteur}
+                            {oeuvre.auteur}
                         </Text>
                         <Card.Divider />
                         <Text style={{ marginBottom: 10 }}>
-                            {musiques.annee}
+                            {oeuvre.annee}
                         </Text>
                         <Button icon={
                             <Icon name="code"
