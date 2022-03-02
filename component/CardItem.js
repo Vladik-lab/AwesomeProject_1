@@ -6,13 +6,10 @@ import { Text, Card, Button, Icon } from 'react-native-elements';
 
 const CardItem = ({ oeuvre }) => {
     return (
-        <view>
+        <View>
             <Card>
                 <Text style={{ marginBottom: 10 }}>
-                    {oeuvre.auteur}
-                </Text>
-                <Text style={{ marginBottom: 10 }}>
-                    {oeuvre.title}
+                    {oeuvre.titre}
                 </Text>
                 <Card.Divider />
                 <Card.Image
@@ -44,13 +41,14 @@ const CardItem = ({ oeuvre }) => {
                     title="Editer"
                 />
             </Card>
-        </view>
+        </View>
     )
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexDirection: "row",
+        width: "100%",
     },
     fonts: {
         marginBottom: 8,
